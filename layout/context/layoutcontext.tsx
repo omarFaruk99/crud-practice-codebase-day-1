@@ -24,6 +24,21 @@ export const LayoutProvider = (props: ChildContainerProps) => {
     });
 
     const [accessToken, setAccessToken] = useState<string>("")
+
+    // This useEffect hook runs once when the LayoutProvider component first loads.
+    // Its purpose is to read the authentication token from the environment variables
+    // and store it in the accessToken state, making it available to the rest of the app.
+    useEffect(() => {
+        // Retrieve the token from the environment variables.
+        // NEXT_PUBLIC_ is required for Next.js to expose the variable to the browser.
+        const token = process.env.NEXT_PUBLIC_AUTH_TOKEN;
+
+        // If a token is found, update the accessToken state.
+        if (token) {
+            setAccessToken(token);
+        }
+    }, []); // The empty dependency array [] ensures this effect runs only once.
+
     const [layoutState, setLayoutState] = useState<LayoutState>({
         staticMenuDesktopInactive: false,
         overlayMenuActive: false,

@@ -12,6 +12,16 @@ const AppMenu = () => {
                     icon: "pi pi-fw pi-home",
                     to: "/",
                 },
+                {
+                    label: "Food Waste",
+                    icon: "pi pi-fw pi-palette",
+                    to: "/foodWaste",
+                },
+                {
+                    label: "Employee Award",
+                    icon: "pi pi-fw pi-heart-fill",
+                    to: "/employeeAward",
+                },
             ],
         }
         // {
